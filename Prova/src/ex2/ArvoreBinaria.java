@@ -57,11 +57,11 @@ public class ArvoreBinaria {
             return null;
         }
 
-        if (numero.equals(no.getContato().getNumero())) {
+        if (numero.compareTo(no.getContato().getNumero()) < 0) {
             no.setEsquerda(removerRecursivo(no.getEsquerda(), numero));
         }
 
-        if (numero.equals(no.getContato().getNumero())) {
+        if (numero.compareTo(no.getContato().getNumero()) > 0) {
             no.setDireita(removerRecursivo(no.getDireita(), numero));
         } else {
             if (Objects.isNull(no.getEsquerda()) && Objects.isNull(no.getDireita())) {
@@ -101,9 +101,9 @@ public class ArvoreBinaria {
         if (no.getContato().getNumero().equals(numero)) {
             return no.getContato();
         } else if (numero.compareTo(no.getContato().getNumero()) < 0) {
-        return buscarPorNumeroRecursivo(no.getEsquerda(), numero);
+            return buscarPorNumeroRecursivo(no.getEsquerda(), numero);
         } else {
-        return buscarPorNumeroRecursivo(no.getDireita(), numero);
+            return buscarPorNumeroRecursivo(no.getDireita(), numero);
         }
     }
 }
